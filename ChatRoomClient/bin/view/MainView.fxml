@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="540.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainViewController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="80.0" layoutY="84.0" prefHeight="540.0" prefWidth="760.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+            <AnchorPane maxWidth="4450.0" minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="400.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutX="70.0" layoutY="14.0" maxWidth="450.0" orientation="VERTICAL" prefHeight="538.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <items>
+                        <AnchorPane maxWidth="450.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="400.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="7.0" text="消息记录" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="7.0" />
+                              <TextArea fx:id="chatMessageText" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane maxHeight="100.0" maxWidth="450.0" minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="400.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="7.0" text="请输入" AnchorPane.leftAnchor="5.0" />
+                              <Button layoutX="352.0" layoutY="1.0" mnemonicParsing="false" onAction="#sendMEssageButton" prefHeight="9.0" prefWidth="40.0" text="发送" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="1.0" />
+                              <TextArea fx:id="inputTextArea" layoutY="-76.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="25.0" />
+                           </children>
+                        </AnchorPane>
+                     </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane maxWidth="147.0" minHeight="0.0" minWidth="0.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutY="48.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane maxHeight="470.0" minHeight="0.0" minWidth="0.0" prefWidth="160.0">
+                           <children>
+                              <TableView fx:id="onlineUserTable" prefHeight="383.0" prefWidth="145.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <columns>
+                                  <TableColumn fx:id="onlineUnameColumn" minWidth="145.0" prefWidth="100.0" text="在线用户" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane maxHeight="100.0" minHeight="0.0" minWidth="0.0" prefWidth="160.0">
+                           <children>
+                              <Button layoutX="35.0" layoutY="14.0" mnemonicParsing="false" onAction="#privateChat" text="私聊" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="25.0" />
+                              <Button layoutX="35.0" layoutY="50.0" mnemonicParsing="false" onAction="#kickoutClient" text="踢出房间" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0" AnchorPane.topAnchor="60.0" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="mapper.RoomMapper">
+		<resultMap type="ChatRoom" id="baseResultMap">
+		<id column="chatroom_Id" property="chatroomId"/>
+		<result column="user_name" property="username"/>
+	</resultMap>
+	<!-- 插入标签 -->
+	<insert id="addRoom" parameterType="ChatRoom">
+		insert into chatroom(chatroom_Id,user_name)
+		values(#{chatroomId},#{username})
+	</insert>
+	<!-- 删除标签 -->
+	<delete id="deleteRoombyId" parameterType="String">
+		delete from chatroom where chatroom_Id=#{chatroomId}
+	</delete>
+	<!-- 更新标签 -->
+	<update id="updateRoomByUser">
+		update chatroom
+		set user_name=#{newUsername}
+		where chatroom_Id=#{chatroomId}
+	</update>
+	<!-- 查询标签 -->
+	<select id="isExistsRoomByRoomId" parameterType="String" resultType="boolean">
+		select count(*) 
+		from chatroom 
+		where chatroom_Id=#{chatroomId}
+	</select>
+	<select id="isExistRoom" parameterType="ChatRoom" resultType="boolean">
+		select count(*) 
+		from user 
+		where chatroom_Id=#{chatroomId} and user_name=#{username}
+	</select>
+	<select id="queryRoomById" parameterType="String" resultMap="baseResultMap">
+		select *
+		from chatroom 
+		where chatroom_Id=#{chatroomId}
+	</select>
+	<select id="queryRoomByUser" parameterType="String" resultMap="baseResultMap">
+		select *
+		from chatroom 
+		where user_name=#{username}
+	</select>
+	<select id="queryAll" resultMap="baseResultMap">
+		select * from chatroom
+	</select>
+</mapper>

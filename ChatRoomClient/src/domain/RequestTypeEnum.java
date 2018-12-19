@@ -1,0 +1,9 @@
+package domain;
+
+import java.io.Serializable;
+
+public enum RequestTypeEnum implements Serializable {
+	REGISTER,LOGIN,ADDSTUDENT, CREATEROOM,SENDMESSAGE, SENDCLIENT,
+	ADDCLIENT,DELETECLIENT,BROADCAST,PRIVATECHAT,KICKOUT, 
+	UPDATEUSERLIST, QUIT,ERROR;
+}
